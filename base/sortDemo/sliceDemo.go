@@ -30,7 +30,7 @@ func (n *SliceDemo) SortDataOneFiled(infoList []DemoData) []DemoData {
 	return infoList
 }
 
-func (n *SliceDemo) RunDemo() []DemoData {
+func (n *SliceDemo) RunDemoOne() []DemoData {
 	tempData := n.SortDataOneFiled(demoInfo)
 	return tempData
 }

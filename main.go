@@ -7,6 +7,6 @@ import (
 
 func main() {
 	t := sortDemo.NewSliceDemo()
-	fmt.Println(t.RunDemo())
+	fmt.Println(t.RunDemoOne())
 
 }
