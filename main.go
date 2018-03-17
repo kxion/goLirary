@@ -8,5 +8,5 @@ import (
 func main() {
 	t := sortDemo.NewSliceDemo()
 	fmt.Println(t.RunDemoOne())
-
+	fmt.Println(t.RunDemoMulti())
 }
