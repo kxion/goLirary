@@ -2,11 +2,10 @@ package main
 
 import (
 	"fmt"
-	"goLirary/base/sortDemo"
+	"goLirary/base"
 )
 
 func main() {
-	t := sortDemo.NewSliceDemo()
-	fmt.Println(t.RunDemoOne())
-	fmt.Println(t.RunDemoMulti())
+	t := base.NewTimeDemo()
+	fmt.Println(t.CurrentUnixTime())
 }
