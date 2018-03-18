@@ -6,6 +6,5 @@ import (
 )
 
 func main() {
-	t := base.NewTimeDemo()
-	fmt.Println(t.CurrentUnixTime())
+	fmt.Println(base.DemoInfo)
 }
