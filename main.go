@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
-	"goLirary/base"
+	"goLirary/base/jsonDemo"
 )
 
 func main() {
-	fmt.Println(base.DemoInfo)
+	t := jsonDemo.NewJsonDemo()
+	t.ReadJsonFile()
 }
