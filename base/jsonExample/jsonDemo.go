@@ -42,7 +42,7 @@ func (*JsonDemo) EncodeDemo1() {
 }
 
 func (*JsonDemo) ReadJsonFile() {
-	fileObj, _ := ioutil.ReadFile("data/demo1.json")
+	fileObj, _ := ioutil.ReadFile("data/json/demo1.json")
 	var decodeJs []Address
 	err := json.Unmarshal(fileObj, &decodeJs)
 	for key, val := range decodeJs {

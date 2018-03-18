@@ -1,10 +1,12 @@
 package main
 
 import (
-	"goLirary/base/jsonDemo"
+	"fmt"
+	"goLirary/base/fileExample"
 )
 
 func main() {
-	t := jsonDemo.NewJsonDemo()
-	t.ReadJsonFile()
+	t := fileExample.NewReadFileDemo()
+	info, _ := t.ReadBinaryFile()
+	fmt.Println(info)
 }
