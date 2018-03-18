@@ -1,4 +1,4 @@
-package jsonDemo
+package jsonExample
 
 import (
 	"encoding/json"

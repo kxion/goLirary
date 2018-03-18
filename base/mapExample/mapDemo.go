@@ -1,4 +1,4 @@
-package base
+package mapExample
 
 type MapDemo struct{}
 

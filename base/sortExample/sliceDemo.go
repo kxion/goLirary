@@ -1,4 +1,4 @@
-package sortDemo
+package sortExample
 
 import (
 	"sort"
