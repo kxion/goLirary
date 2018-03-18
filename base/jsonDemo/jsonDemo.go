@@ -45,6 +45,9 @@ func (*JsonDemo) ReadJsonFile() {
 	fileObj, _ := ioutil.ReadFile("demo1.json")
 	var decodeJs []Address
 	err := json.Unmarshal(fileObj, &decodeJs)
-	fmt.Println(decodeJs, err)
+	for key, val := range decodeJs {
+		fmt.Println(key, val.City)
+	}
+	fmt.Println(err)
 
 }
