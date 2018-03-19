@@ -2,16 +2,10 @@ package main
 
 import (
 	"fmt"
-	"goLirary/base/fileExample"
+	"goLirary/base/sysExample"
 )
 
 func main() {
-	t := fileExample.NewWriteFileDemo()
-	var textInfo []string
-	for i := 0; i < 50; i++ {
-		val := fmt.Sprintf("%d", i)
-		textInfo = append(textInfo, val)
-	}
-	err := t.WriteTextFile("data/file/write.txt", textInfo)
-	fmt.Println(err)
+	t := sysExample.NewOsDemo()
+	fmt.Println(t.ReadEnvByKey("path"))
 }
