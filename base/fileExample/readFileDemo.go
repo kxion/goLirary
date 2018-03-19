@@ -32,8 +32,19 @@ func (r *ReadFileDemo) ReadBinaryFile() ([]byte, error) {
 		fmt.Println(readErr)
 	}
 	defer fileObj.Close()
-	var infoList []byte
-	_, err := fileObj.Read(infoList)
+
+	//获取二进制文件的字节长度
+	stats, err := fileObj.Stat()
+	var size int64 = stats.Size()
+
+	//计算文件的字节长度
+	infoList := make([]byte, size)
+	if err != nil {
+		return infoList, err
+	}
+
+	bufr := bufio.NewReader(fileObj)
+	_, err = bufr.Read(infoList)
 	if err != nil {
 		return infoList, err
 	}
