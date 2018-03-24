@@ -1,11 +1,10 @@
 package main
 
 import (
-	"fmt"
-	"goLirary/base/sysExample"
+	"goLirary/base/interfaceExample"
 )
 
 func main() {
-	t := sysExample.NewOsDemo()
-	fmt.Println(t.ReadEnvByKey("path"))
+	t := interfaceExample.NewInterfaceDemo()
+	t.Run()
 }

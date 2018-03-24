@@ -19,6 +19,8 @@ func (r *ReadFileDemo) ReadFileLine() []string {
 	}
 	defer fileObj.Close()
 	var infoList []string
+
+	//这一块因为*File实现 io.Reader的方法，所以这一块是可以调用
 	fileInfos := bufio.NewScanner(fileObj)
 	for fileInfos.Scan() {
 		infoList = append(infoList, fileInfos.Text())
