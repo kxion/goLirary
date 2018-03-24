@@ -1,10 +1,17 @@
 package main
 
 import (
-	"goLirary/base/interfaceExample"
+	"fmt"
+	"goLirary/base/goroutineExample"
+	"time"
 )
 
 func main() {
-	t := interfaceExample.NewInterfaceDemo()
-	t.Run()
+	fmt.Println("start")
+	t := goroutineExample.NewChannelDemo()
+	var ch = make(chan string)
+	go t.SendData(ch)
+	go t.RecieveData(ch)
+	time.Sleep(10 * 1e9)
+	fmt.Println("end")
 }
