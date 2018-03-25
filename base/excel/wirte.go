@@ -1,6 +1,7 @@
 package excel
 
 import (
+	"fmt"
 	"strconv"
 
 	"github.com/360EntSecGroup-Skylar/excelize"
@@ -87,15 +88,17 @@ func (w *Write) Run() {
 	rowDatas := w.ConVertRows('A', demoUserInfo, "2")
 	columnDatas := w.ConvertColumn('A', demoColumnInfo)
 	xlsx := excelize.NewFile()
+	xlsx.NewSheet("用户信息")
+	for k, v := range columnDatas {
+		fmt.Println(k, v)
+		xlsx.SetCellValue("用户信息", k, v)
+	}
 	for _, val := range rowDatas {
 		for k, v := range val {
-			xlsx.SetCellValue("写入练习", k, v)
+			fmt.Println(k, v)
+			xlsx.SetCellValue("用户信息", k, v)
 		}
 	}
-
-	for k, v := range columnDatas {
-		xlsx.SetCellValue("写入练习", k, v)
-	}
-
-	xlsx.SaveAs("写入练习.xlsx")
+	xlsx.DeleteSheet("Sheet1")
+	xlsx.SaveAs("./写入练习.xlsx")
 }

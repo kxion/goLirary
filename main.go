@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	t := excel.NewWrite()
-	t.Run()
+	t := excel.NewRead()
+	t.ReadExcel("./写入练习.xlsx", "用户信息")
 }
