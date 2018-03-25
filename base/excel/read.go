@@ -1,4 +1,4 @@
-package excelExample
+package excel
 
 /*
 excel的扩展采用的是https://github.com/360EntSecGroup-Skylar/excelize
