@@ -1,10 +1,20 @@
 package main
 
 import (
-	"goLirary/base/excel"
+	"fmt"
 )
 
+func f1(in chan int) {
+	fmt.Println(<-in)
+}
+
+func f2(in chan int) {
+	in <- 2
+}
+
 func main() {
-	t := excel.NewRead()
-	t.ReadExcel("./写入练习.xlsx", "用户信息")
+	out := make(chan int)
+	go f1(out)
+	go f2(out)
+	fmt.Println(<-out)
 }
