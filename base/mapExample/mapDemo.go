@@ -11,9 +11,16 @@ type MapDemo1 struct {
 	Age   int64
 	Id    int64
 	Money float64
+	Type  string
 }
 
-var DemoInfo = []MapDemo1{{"Bob", 31, 1, 20.04}, {"jim", 10, 10, 70.04}, {"bim", 10, 30, 200.04}}
+type MapDemo2 struct {
+	Name  string
+	Info  map[string]int
+	Total int64
+}
+
+var DemoInfo = []MapDemo1{{"Bob", 31, 1, 20.04, "type1"}, {"jim", 10, 10, 70.04, "type1"}, {"bim", 10, 30, 200.04, "type2"}}
 
 //slice转换成标准的key value的结构
 //类似与php的array["1"=>[1,2,3]]
@@ -32,4 +39,17 @@ func (m *MapDemo) NormalValue() map[int]MapDemo1 {
 		obj[index] = val
 	}
 	return obj
+}
+
+func (m *MapDemo) UnionStruct() []MapDemo2 {
+	var infos []MapDemo2
+	var data = make(map[string]MapDemo)
+	for _, val := range DemoInfo {
+		info, ok := data[val.Type]
+		if !ok {
+			info.Info = make(map[string]int)
+		}
+
+	}
+	return infos
 }
