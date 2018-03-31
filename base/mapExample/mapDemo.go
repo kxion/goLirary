@@ -16,7 +16,7 @@ type MapDemo1 struct {
 
 type MapDemo2 struct {
 	Name  string
-	Info  map[string]int
+	Info  map[string]int64
 	Total int64
 }
 
@@ -43,13 +43,14 @@ func (m *MapDemo) NormalValue() map[int]MapDemo1 {
 
 func (m *MapDemo) UnionStruct() []MapDemo2 {
 	var infos []MapDemo2
-	var data = make(map[string]MapDemo)
+	var data = make(map[string]MapDemo2)
 	for _, val := range DemoInfo {
 		info, ok := data[val.Type]
 		if !ok {
-			info.Info = make(map[string]int)
+			info.Info = make(map[string]int64)
 		}
-
+		info.Name = val.Type
+		info.Info[val.Name] = val.Age
 	}
 	return infos
 }
