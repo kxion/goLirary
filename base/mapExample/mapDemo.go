@@ -1,5 +1,9 @@
 package mapExample
 
+import (
+	"fmt"
+)
+
 type MapDemo struct{}
 
 func NewMapDemo() *MapDemo {
@@ -51,6 +55,19 @@ func (m *MapDemo) UnionStruct() []MapDemo2 {
 		}
 		info.Name = val.Type
 		info.Info[val.Name] = val.Age
+		data[info.Name] = info
 	}
+	fmt.Println(data)
 	return infos
+}
+
+//输出map结构
+func (m *MapDemo) KeyValue() {
+	var datas []map[string]int64
+	for _, val := range DemoInfo {
+		var info = make(map[string]int64)
+		info[val.Name] = val.Age
+		datas = append(datas, info)
+	}
+	fmt.Println(datas)
 }

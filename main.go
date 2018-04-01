@@ -1,10 +1,10 @@
 package main
 
 import (
-	"goLirary/base/fmtExample"
+	"goLirary/base/mapExample"
 )
 
 func main() {
-	t := fmtExample.NewFmtDemo()
-	t.Run()
+	t := mapExample.NewMapDemo()
+	t.KeyValue()
 }
