@@ -1,10 +1,9 @@
 package main
 
 import (
-	"goLirary/base/mapExample"
+	"goLirary/email"
 )
 
 func main() {
-	t := mapExample.NewMapDemo()
-	t.KeyValue()
+	email.SendEmail()
 }
