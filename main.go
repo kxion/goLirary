@@ -1,9 +1,11 @@
 package main
 
 import (
-	"goLirary/email"
+	"goLirary/crypto"
 )
 
 func main() {
-	email.SendEmail()
+	crypto.RunMd5("123456")
+	crypto.RunSha256("123456")
+	crypto.RunSha1("123456")
 }
