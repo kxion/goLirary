@@ -71,3 +71,9 @@ func (m *MapDemo) KeyValue() {
 	}
 	fmt.Println(datas)
 }
+
+//输出标准的结构map[key][]struct
+/*
+var info = make(map[string][]struct)
+info[key1]= append(info[key],val)
+*/
