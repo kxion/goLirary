@@ -28,9 +28,10 @@ func (s *StringToNumber) StrInt() {
 	fmt.Println(strVal, str64Val)
 }
 
+//科学计数法的抓换
 func (s *StringToNumber) ComputeSc() {
-	computeSc := "1.000000002e+09"
-	var floatInfo float64
-	fmt.Sscanf(computeSc, "%e", &floatInfo)
+	var computeSc float64 = 1.000000002e+09
+	var floatInfo string
+	floatInfo = strconv.FormatFloat(computeSc, 'f', 2, 64)
 	fmt.Println(floatInfo)
 }
