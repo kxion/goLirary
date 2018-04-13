@@ -1,6 +1,7 @@
 package timeExample
 
 import (
+	"fmt"
 	"time"
 )
 
@@ -44,4 +45,48 @@ func (t *TimeDemo) CurrentStrTime(format string) string {
 
 func (t *TimeDemo) CurrentUnixTime() int64 {
 	return time.Now().Unix()
+}
+
+func (t *TimeDemo) GetMonth(tt time.Time) int64 {
+	var month int64
+	monthString := tt.Month().String()
+	switch monthString {
+	case "January":
+		month = 1
+	case "February":
+		month = 2
+	case "March":
+		month = 3
+	case "April":
+		month = 4
+	case "May":
+		month = 5
+	case "June":
+		month = 6
+	case "July":
+		month = 7
+	case "August":
+		month = 8
+	case "September":
+		month = 9
+	case "October":
+		month = 10
+	case "November":
+		month = 11
+	case "December":
+		month = 12
+	}
+	return month
+}
+
+func (t *TimeDemo) GetLastDayOfMonth(year int64, month int64) (string, string) {
+	formatMonthStr := "%d-%d"
+	if month < 10 {
+		formatMonthStr = "%d-0%d"
+	}
+	monthTimeStr := fmt.Sprintf(formatMonthStr, year, month)
+	monthTime, _ := time.Parse("2006-01", monthTimeStr)
+	firstDay := monthTime.AddDate(0, 0, 0).Format("2006-01-02")
+	endDay := monthTime.AddDate(0, 1, -1).Format("2006-01-02")
+	return firstDay, endDay
 }
