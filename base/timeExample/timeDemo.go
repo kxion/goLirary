@@ -47,6 +47,10 @@ func (t *TimeDemo) CurrentUnixTime() int64 {
 	return time.Now().Unix()
 }
 
+func (t *TimeDemo) FormatHour(tt time.Time) string {
+	return tt.Format("15:04")
+}
+
 func (t *TimeDemo) GetMonth(tt time.Time) int64 {
 	var month int64
 	monthString := tt.Month().String()
