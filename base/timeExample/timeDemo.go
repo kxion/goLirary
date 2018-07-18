@@ -169,3 +169,15 @@ func (t *TimeDemo) GetPeriodOfMonthDay(startDate, endDate string) []string {
 	}
 	return periodMonth
 }
+
+func (t *TimeDemo) GetDaysList(startDate, endDate string) []string {
+	var dayLists []string
+	var startTime time.Time
+	startTime, _ = time.Parse("2006-01-02", startDate)
+	endTime, _ := time.Parse("2006-01-02", endDate)
+	for startTime.Before(endTime) || startTime.Equal(endTime) {
+		dayLists = append(dayLists, startTime.Format("2006-01-02"))
+		startTime = startTime.AddDate(0, 0, 1)
+	}
+	return dayLists
+}
