@@ -1,6 +1,7 @@
 package sortExample
 
 import (
+	"fmt"
 	"sort"
 )
 
@@ -52,4 +53,11 @@ func (n *SliceDemo) RunDemoOne() []DemoData {
 func (n *SliceDemo) RunDemoMulti() []DemoData {
 	tempData := n.SortDataMultiFiled(demoInfo)
 	return tempData
+}
+
+func (n *SliceDemo) Run(data *[]DemoData) {
+	for _, val := range *data {
+		val.Age = val.Age
+	}
+	fmt.Println(demoInfo)
 }

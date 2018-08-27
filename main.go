@@ -1,8 +1,10 @@
 package main
 
-import "goLirary/process"
+import (
+	"goLirary/thread"
+)
 
 func main() {
-	s := process.NewSignalDemo()
-	s.Rundemo2()
+	var s thread.WaitGroupDemo
+	s.Run()
 }
