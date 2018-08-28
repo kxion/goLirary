@@ -1,10 +1,12 @@
 package main
 
 import (
-	"goLirary/thread"
+	"goLirary/base"
 )
 
 func main() {
-	var s thread.WaitGroupDemo
-	s.Run()
+	var s base.SelectDemo
+	s.SendRun()
+	for {
+	}
 }
