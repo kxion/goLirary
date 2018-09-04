@@ -1,12 +1,10 @@
 package main
 
 import (
-	"goLirary/base"
-	"time"
+	"goLirary/base/interfaceExample"
 )
 
 func main() {
-	var s base.TimeDemo
-	s.RunTicker1()
-	time.Sleep(20 * time.Second)
+	var s = interfaceExample.NewInterfaceDemo()
+	s.Run2()
 }

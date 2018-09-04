@@ -2,6 +2,7 @@ package timeExample
 
 import (
 	"fmt"
+	"log"
 	"time"
 )
 
@@ -180,4 +181,15 @@ func (t *TimeDemo) GetDaysList(startDate, endDate string) []string {
 		startTime = startTime.AddDate(0, 0, 1)
 	}
 	return dayLists
+}
+
+//time sub计算两个时间差
+func (t *TimeDemo) GetPeriodOfTime(hour int) {
+	today := time.Now()
+	timing := time.Date(today.Year(), today.Month(), today.Day(), hour, 0, 0, 0, today.Location())
+	if today.After(timing) {
+		timing = timing.Add(24 * time.Hour)
+	}
+	sleepTime := timing.Sub(today)
+	log.Println(sleepTime)
 }
