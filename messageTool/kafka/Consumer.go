@@ -27,11 +27,7 @@ func (s *Consumer) GetTopicMsgs(brokers []string, topic string) {
 		return
 	}
 	for partition := range partitionList {
-		// sarama.OffsetNewest
 		offset := sarama.OffsetNewest
-		if partition == 3 {
-			offset = 1
-		}
 		cousumerPartition, err := consumer.ConsumePartition(topic, int32(partition), offset)
 		if err != nil {
 			log.Printf("Consumer.CousumerMsg ConsumePartition:%d:,err:%s\n", partition, err)
@@ -46,7 +42,7 @@ func (s *Consumer) CousumerMsg(cousumerPartition sarama.PartitionConsumer) {
 	for {
 		select {
 		case msg := <-cousumerPartition.Messages():
-			log.Println(string(msg.Value), msg.Offset)
+			log.Println(string(msg.Value), msg.Partition, msg.Offset)
 		case err := <-cousumerPartition.Errors():
 			log.Println(err)
 		}
