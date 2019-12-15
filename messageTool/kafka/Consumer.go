@@ -12,6 +12,17 @@ func NewConsumer() *Consumer {
 	return new(Consumer)
 }
 
+var Test int
+
+func init() {
+	Test = 3
+}
+
+func (s *Consumer) GetTest() int {
+	Test += 10
+	return Test
+}
+
 func (s *Consumer) GetTopicMsgs(brokers []string, topic string) {
 	config := sarama.NewConfig()
 	config.Consumer.Return.Errors = true

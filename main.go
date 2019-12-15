@@ -1,16 +1,13 @@
 package main
 
 import (
-	"goLirary/messageTool/kafka"
-	"time"
+	"goLirary/nosql/redis"
+	"log"
 )
 
 func main() {
-	produce := kafka.NewProduce()
-	cousumer := kafka.NewConsumer()
-	brokers := []string{"127.0.0.1:9092"}
-	topic := "xiaoheiwa"
-	go produce.SendMultiMsg(brokers, topic, "xiaohiewa")
-	go cousumer.GetTopicMsgs(brokers, topic)
-	time.Sleep(10 * time.Minute)
+	redisClient := redis.NewRedisP()
+	err := redisClient.SetRedisCacheMapByKey("TEST2", "2", 6000)
+	log.Println(err)
+	log.Println(redisClient.GetRedisStrByKey("TEST2"))
 }
